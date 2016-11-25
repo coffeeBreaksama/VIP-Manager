@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="SysCard">
+</Property><Property Name="解决方案文件" Value="C:\Users\Administrator\Desktop\临时\SysCard.sln">
+</Property><Property Name="用户选项文件" Value="C:\Users\Administrator\Desktop\临时\SysCard.suo">
+</Property><Property Name="Date" Value="2016年10月25日">
+</Property><Property Name="Time" Value="14:25">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="SysCard.sln" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\SysCard.sln">
+</Event><Event ErrorLevel="0" Project="" Source="SysCard.suo" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\SysCard.suo">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="SysCard.csproj" Description="项目文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\SysCard.csproj">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Contor\Bout.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Contor\Bout.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Contor\testCon.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Contor\testCon.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="DAL\AdminServices.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\DAL\AdminServices.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="DAL\BuyBkServices.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\DAL\BuyBkServices.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="DAL\Dbhelper.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\DAL\Dbhelper.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="DAL\PdServices.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\DAL\PdServices.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="DAL\ProductServices.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\DAL\ProductServices.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="DAL\ScoServices.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\DAL\ScoServices.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="DAL\UserServices.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\DAL\UserServices.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="DAL\BuyProductServices.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\DAL\BuyProductServices.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="FormUpdate.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\FormUpdate.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="FormUpdate.Designer.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\FormUpdate.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_aboat.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_aboat.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_aboat.Designer.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_aboat.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_adduser.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_adduser.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_adduser.Designer.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_adduser.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_BuyBK.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_BuyBK.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_BuyBK.Designer.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_BuyBK.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_Config.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_Config.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_Config.Designer.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_Config.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_dispbk.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_dispbk.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_dispbk.Designer.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_dispbk.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_loading.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_loading.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_loading.Designer.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_loading.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_log.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_log.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_log.Designer.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_log.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_main.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_main.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_main.Designer.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_main.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_Pay.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_Pay.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_Pay.Designer.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_Pay.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_payFor.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_payFor.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_payFor.Designer.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_payFor.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_Product.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_Product.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_Product.Designer.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_Product.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_Sco.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_Sco.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_Sco.Designer.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_Sco.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_TestForm.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_TestForm.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_TestForm.Designer.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_TestForm.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_UserInfo.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_UserInfo.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_UserInfo.Designer.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_UserInfo.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="For_AddPrice.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\For_AddPrice.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="For_AddPrice.Designer.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\For_AddPrice.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Models\AdminInfo.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Models\AdminInfo.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Models\BuyBk.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Models\BuyBk.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Models\BuyFz.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Models\BuyFz.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Models\Pd_info.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Models\Pd_info.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Models\ProductInfo.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Models\ProductInfo.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Models\ScoInfo1.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Models\ScoInfo1.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Models\UserInfo.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Models\UserInfo.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Models\BuyProduct.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Models\BuyProduct.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Program.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Program.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Properties\AssemblyInfo.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Properties\Resources.Designer.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Properties\Settings.Designer.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_dispPK.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_dispPK.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_dispPK.Designer.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_dispPK.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Settings1.Designer.cs" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Settings1.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Properties\Settings.settings" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Resources\未命名.bmp" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Resources\未命名.bmp">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="app.config" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\app.config">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Resources\127353384813128.jpg" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Resources\127353384813128.jpg">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Settings1.settings" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Settings1.settings">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Resources\pdlogin .jpg" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Resources\pdlogin .jpg">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Resources\420X200.jpg" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Resources\420X200.jpg">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Resources\1024X768.jpg" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Resources\1024X768.jpg">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Resources\未标题-1 拷贝.gif" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Resources\未标题-1 拷贝.gif">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Resources\png-0098.png" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Resources\png-0098.png">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Resources\png-0509.png" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Resources\png-0509.png">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Resources\png-0054.png" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Resources\png-0054.png">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Resources\png-0184.png" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Resources\png-0184.png">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Resources\png-0007.png" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Resources\png-0007.png">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Resources\png-0041.png" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Resources\png-0041.png">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Resources\png-0022.png" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Resources\png-0022.png">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Resources\png-0566.png" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Resources\png-0566.png">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Resources\png-0055.png" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Resources\png-0055.png">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Resources\png-0234.png" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Resources\png-0234.png">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Resources\png-00981.png" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Resources\png-00981.png">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Resources\png-0504.png" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Resources\png-0504.png">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Resources\png-0013.png" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Resources\png-0013.png">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Resources\png-1119.png" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Resources\png-1119.png">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="FormUpdate.resx" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\FormUpdate.resx">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_aboat.resx" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_aboat.resx">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_adduser.resx" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_adduser.resx">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_BuyBK.resx" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_BuyBK.resx">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_Config.resx" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_Config.resx">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_dispbk.resx" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_dispbk.resx">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_loading.resx" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_loading.resx">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_log.resx" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_log.resx">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_main.resx" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_main.resx">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_Pay.resx" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_Pay.resx">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_payFor.resx" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_payFor.resx">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_Product.resx" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_Product.resx">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_Sco.resx" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_Sco.resx">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_TestForm.resx" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_TestForm.resx">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_UserInfo.resx" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_UserInfo.resx">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="For_AddPrice.resx" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\For_AddPrice.resx">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Properties\Resources.resx" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="Form_dispPK.resx" Description="文件已成功备份为 C:\Users\Administrator\Desktop\临时\Backup\Form_dispPK.resx">
+</Event><Event ErrorLevel="1" Project="SysCard" Source="SysCard.csproj" Description="您的项目以 .NET Framework 2.0 或 3.0 为目标。如果您的项目使用的程序集需要更新的 .NET Framework，则项目生成将失败。通过单击项目菜单上的“属性”，然后在“.NET Framework”下拉框中选择一个新版本，可以更改 .NET Framework 的版本。(在 Visual Basic 中，可在单击“高级编辑器选项...”按钮时显示的“编译”选项卡上找到此下拉框。)">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="SysCard.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="SysCard" Source="SysCard.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="SysCard.sln" Description="成功转换解决方案">
+</Event><Event ErrorLevel="3" Project="" Source="SysCard.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="SysCard" Source="SysCard.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event></UpgradeLog>

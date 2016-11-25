@@ -1,0 +1,3 @@
+C:\Users\Administrator\Desktop\临时\bin\Debug\SysCard.exe.config
+C:\Users\Administrator\Desktop\临时\obj\Debug\SysCard.exe
+C:\Users\Administrator\Desktop\临时\obj\Debug\SysCard.pdb
