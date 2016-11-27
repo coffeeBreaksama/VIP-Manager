@@ -8,12 +8,19 @@ namespace SysCard.DAL.Data
 {
     public class DataService
     {
+        
+        
         public static int ChangeVipConnCard(string CardNum,VipInfo vip)
         {
-            string sql = string.Format("update VipInfo set CardNumber='{0}' where VipId= {1} ", CardNum,vip.VipId);
-            //标准表达式中数据类型不匹配
+            string OldBalance = GetCardBalance(vip.ConnectCarNum);//转移余额
+            string sql = string.Format("update SentCardInfo set Balance='{0}' where CardNumber= '{1}' ", 0, vip.ConnectCarNum);
             int val = Dbhelper.ExecuteNonQuery(sql);
-            sql = string.Format("update SentCardInfo set ConnectVipId='{0}' where CardNumber='{1}' ", vip.VipId, CardNum);
+            sql = string.Format("update SentCardInfo set Balance='{0}' where CardNumber='{1}' ", uint.Parse(OldBalance), CardNum);
+            val = Dbhelper.ExecuteNonQuery(sql);
+            sql = string.Format("update VipInfo set CardNumber='{0}' where VipId= {1} ", CardNum,vip.VipId);
+            //标准表达式中数据类型不匹配
+            val = Dbhelper.ExecuteNonQuery(sql);
+            sql = string.Format("update SentCardInfo set ConnectVipId='{0}' and Balance='{1}' where CardNumber='{2}' ", vip.VipId, uint.Parse(OldBalance), CardNum);
             val = val + Dbhelper.ExecuteNonQuery(sql);
             return val;
         }
