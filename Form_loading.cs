@@ -8,6 +8,9 @@ using System.Windows.Forms;
 using SysCard.DAL;
 using System.Data.OleDb;
 using SysCard.DAL.Waiter;
+using SysCard.DAL.Manager;
+
+
 namespace SysCard
 {
     public partial class Form_loading : Form
@@ -27,7 +30,6 @@ namespace SysCard
             {
                 this.timer1.Enabled = false;
                 waiter.StartLog(this);
-            
 
             }
         }

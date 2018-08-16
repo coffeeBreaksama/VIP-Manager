@@ -7,17 +7,21 @@ using System.Text;
 using System.Windows.Forms;
 using SysCard.DAL.Waiter;
 using SysCard.DAL.Manager;
+using SysCard.DAL.Data;
 namespace SysCard
 {
     public partial class Form_NewCard : Form
     {
+
+        static public string path;
+
         public Form_NewCard()
         {
             InitializeComponent();
             this.CenterToScreen();
             //this.FormBorderStyle = FormBorderStyle.None;
             this.Show();
-            this.timer1.Enabled = true;
+            //this.timer1.Enabled = true;
         }
         
         private void timer1_Tick(object sender, EventArgs e)
@@ -27,7 +31,9 @@ namespace SysCard
 
         private void BtnNewCard_Click(object sender, EventArgs e)
         {
-            waiter.SentNewCard(this.TCardNum.Text);
+            path = ControCenter.SelectPath();
+            ControCenter.GetDataOfExcel(path);
+            DataService.FillPriceOfDs();
         }
     }
 }

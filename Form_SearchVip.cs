@@ -6,7 +6,9 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using SysCard.DAL.Waiter;
+using SysCard.DAL.Manager;
 using SysCard.DAL.Data;
+using Microsoft.Win32;
 
 namespace SysCard
 {
@@ -14,46 +16,55 @@ namespace SysCard
     {
 
         static List<VipInfo> vip;
+        string path;
+        static List<ObjInfo> data;
+        
         public Form_SearchVip()
         {
             InitializeComponent();
-            dataGridView1.DataSource = waiter.SearchAllVipInfo();
+            data=DataService.GetALLObjInfo();
+            dataGridView1.DataSource = data;
             this.Show();
+            
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void SearchData(string name, int id, string para1, string para2, string para3)
         {
-            vip = waiter.SearchVipInfo(this.tex_name.Text, this.tex_phone.Text);
-            dataGridView1.DataSource = vip;
-            if (vip.Count > 0)
+            int a = ControCenter.ObjInfoData.Count;
+            this.dataGridView1.DataSource = null;
+            data.Clear();
+            for (int i = 0; i < a; i++)
             {
-                this.CardNum.Text = vip[0].ConnectCarNum;
+                if ((name == "" || name == ControCenter.ObjInfoData[i].Name)
+                    && (id < 0 || id == ControCenter.ObjInfoData[i].Index)
+                    && (para1 == "" || para1 == ControCenter.ObjInfoData[i].Parameter1)
+                    && (para1 == "" || para2 == ControCenter.ObjInfoData[i].Parameter2)
+                    && (para1 == "" || para3 == ControCenter.ObjInfoData[i].Parameter3)
+                    )
+                {
+                    data.Add(ControCenter.ObjInfoData[i]);
+                }
             }
-        }
+            this.dataGridView1.DataSource = data;
 
-        private void ReportLoss_Click(object sender, EventArgs e)
+        
+        }
+        private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            if (vip != null && vip.Count > 0)
-            {
-                waiter.ReportLoss(this.CardNum.Text, vip[0]);
-            }
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void Search_Click(object sender, EventArgs e)
         {
-            if (vip != null && vip.Count > 0)
+            int id;
+            if(tex_id.Text == "")
             {
-                waiter.CancelLoss(this.CardNum.Text, vip[0]);
-            }
+                id = -1;
+            }else
+                id = int.Parse(tex_id.Text);
+            SearchData(tex_name.Text,id,textpara1.Text,textpara2.Text,textpara3.Text);
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (vip != null && vip.Count > 0)
-            {
-                waiter.ReissueCard(vip[0],this.Reissue.Text);
-            }
-        }
+
+      
     }
 }

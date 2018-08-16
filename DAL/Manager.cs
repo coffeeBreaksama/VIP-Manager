@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Text;
 using SysCard.DAL.Waiter;
@@ -17,10 +18,37 @@ namespace SysCard.DAL.Manager//主要的业务逻辑实现控制台
         public static AdminType NowLogType;
         public static admin NowLogAdmin;
         public static PrivilegeInfo NowPrivilege;
+        public static List<ObjInfo> ObjInfoData;
+        public static DataSet ds;
+
 
         public ControCenter()
         {
-              
+            LoadObjData();
+        }
+        public static void LoadObjData()
+        {
+            ObjInfoData = DataService.GetALLObjInfo();
+
+
+        }
+
+        public static void GetDataOfExcel(string path)
+        {
+            ds = DataService.OpenExcelToDs(path);
+            
+        }
+
+        public static string SelectPath()
+        {
+            string path = string.Empty;
+            System.Windows.Forms.OpenFileDialog openFileDialog = new System.Windows.Forms.OpenFileDialog(); ;
+            var result = openFileDialog.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                path = openFileDialog.FileName;
+            }
+            return path;
         }
 
         public static bool ReissueCard(VipInfo vip, string NewCard)

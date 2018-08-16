@@ -32,6 +32,35 @@ namespace SysCard.DAL
                 connection.Open();
             }
         }
+        public static void OpenConnectExcel(string path)
+        {
+            connection = GetOleDbConnectionExcel(path);
+            if (connection.State == ConnectionState.Open)
+            {
+
+            }
+            else
+            {
+                connection.Open();
+            }
+        }
+        public static OleDbConnection GetOleDbConnectionExcel(string path)
+        {
+            string connstr = " Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + path + ";Extended Properties='Excel 8.0'";//从配置文件读取dat.mdb所在文件地址
+            //string connstr = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = dat.mdb; Persist Security Info = False";
+            if (connection == null)
+            {
+                connection = new OleDbConnection(connstr);
+            }
+            else
+            {
+
+            }
+            return connection;
+            //\\127.0.0.1\data\data.mdb
+            //return new OleDbConnection("\\\\127.0.0.1\\data\\data.mdb");
+            // return new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\\\\192.168.1.101\\Users\\Public\\data.mdb");
+        }
         public static OleDbConnection GetOleDbConnection()
         {
             string connstr = System.Configuration.ConfigurationManager.ConnectionStrings["connstr"].ToString();//从配置文件读取dat.mdb所在文件地址

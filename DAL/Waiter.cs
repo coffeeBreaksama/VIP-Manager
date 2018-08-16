@@ -17,7 +17,7 @@ namespace SysCard.DAL.Waiter
     {
 
         public static void ReissueCard(VipInfo vip, string NewCard)
-        {
+        { 
             if(ControCenter.ReissueCard(vip,NewCard))
             {
                 MessageBox.Show("成功");
@@ -50,7 +50,7 @@ namespace SysCard.DAL.Waiter
         public static void RunSearchVip()
         {
             Form_SearchVip SearchVip = new Form_SearchVip();
-            Port.OpenPort();
+            //Port.OpenPort();
         }
         public static List<VipInfo> SearchVipInfo(string name, string phone, string CardNum)
         {
@@ -154,9 +154,25 @@ namespace SysCard.DAL.Waiter
             else
             {
                 init.Visible = false;
-                Form_log Log = new Form_log();                
+                Form_log Log = new Form_log();    
+                waiter.Log("1", "1", AdminType.雇员, Log);
             }
         }
+       /* public static List<ObjInfo> GetExcelSource(Form form, string path)
+        {
+           // ProjectForm = init;
+            if (!DataService.VerifyConnExcel(path))
+            {
+                MessageBox.Show("打开表格失败！");
+                form.Visible = false;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        */
+
         public static string GetPortCardNum()
         {
             if (Port.GetCardNum() == null)
@@ -194,8 +210,10 @@ namespace SysCard.DAL.Waiter
             if (ControCenter.LogIn(LogName, LogPassword, LogType))
             {
                 log.Visible = false;
+                ControCenter.LoadObjData();
                 Form_main f = new Form_main();
                 f.ShowDialog();
+
 
             }
             else

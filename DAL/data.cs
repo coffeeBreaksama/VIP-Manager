@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Text;
 using SysCard.DAL.Manager;
@@ -8,8 +9,85 @@ namespace SysCard.DAL.Data
 {
     public class DataService
     {
-        
-        
+        public static DataSet ds;
+        public static OleDbDataAdapter myCommand;
+        public static string strConn;
+        public static string strExcel;
+
+        public static DataSet OpenExcelToDs(string Path)
+        {
+            strConn = "Provider=Microsoft.ACE.OLEDB.12.0;" + "Data Source=" + Path + ";" + "Extended Properties=Excel 8.0;";//要更新支持xlsx格式
+            OleDbConnection conn = new OleDbConnection(strConn);
+            conn.Open();
+            strExcel = "";
+            myCommand = null;
+            ds = null;
+            strExcel = "select * from [sheet1$]";
+            myCommand = new OleDbDataAdapter(strExcel, strConn);
+            ds = new DataSet(); myCommand.Fill(ds, "table1");
+            //ds.Tables["table1"].Rows[2][2] = "fuck";
+            //myCommand.Fill(ds, "table1");
+
+            return ds;
+        }
+
+        public static bool FillPriceOfDs()
+        {
+            ObjInfo obj = new ObjInfo();
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                obj.Index = int.Parse(ds.Tables[0].Rows[i][0].ToString());
+                obj.Name = ds.Tables[0].Rows[i][1].ToString();
+                obj.Parameter1 = ds.Tables[0].Rows[i][2].ToString();
+                obj.Parameter2 = ds.Tables[0].Rows[i][3].ToString();
+                obj.Parameter3 = ds.Tables[0].Rows[i][4].ToString();
+                obj.Comments = ds.Tables[0].Rows[i][8].ToString();
+                obj = DataService.MatchExcelData(obj);
+                ds.Tables[0].Rows[i][5] = obj.BasePrice1;
+                ds.Tables[0].Rows[i][6] = obj.BasePrice2;
+                ds.Tables[0].Rows[i][7] = obj.BasePrice3;
+                ds.Tables[0].Rows[i][8] = obj.Comments;
+
+            }
+            myCommand.Fill(ds, "table1");
+            return true;
+        }
+
+
+
+        public static ObjInfo MatchExcelData(ObjInfo obj)//在数据库中查找匹配的价格
+        {
+
+            int time = 0;//匹配的数据个数
+            //ControCenter.ObjInfoData = DataService.GetALLObjInfo();
+            for (int i = 0; i < ControCenter.ObjInfoData.Count; i++)
+            {
+                if (obj.Name == ControCenter.ObjInfoData[i].Name &&
+                   obj.Parameter1 == ControCenter.ObjInfoData[i].Parameter1 &&
+                   obj.Parameter2 == ControCenter.ObjInfoData[i].Parameter2 &&
+                   obj.Parameter3 == ControCenter.ObjInfoData[i].Parameter3)
+                {
+                    obj.BasePrice1 = ControCenter.ObjInfoData[i].BasePrice1;
+                    obj.BasePrice2 = ControCenter.ObjInfoData[i].BasePrice2;
+                    obj.BasePrice3 = ControCenter.ObjInfoData[i].BasePrice3;
+                    time += 1;
+                }
+
+            }
+            if (time > 1)
+            {
+                obj.Comments = "报价单中存在相同的此类产品，请在报价查询界面核查";
+                time = 0;
+            }
+            else if (time == 0)
+            {
+                obj.BasePrice1 = "没有符合要求的数据";
+                obj.BasePrice2 = "没有符合要求的数据";
+                obj.BasePrice3 = "没有符合要求的数据";
+            }
+            return obj;
+
+        }
         public static int ChangeVipConnCard(string CardNum,VipInfo vip)
         {
             string OldBalance = GetCardBalance(vip.ConnectCarNum);//转移余额
@@ -138,6 +216,7 @@ namespace SysCard.DAL.Data
             else return 0;
         }
 
+
         public static VipInfo GetVipInfo(uint VipId,VipInfo vip)
         {
             string sql = string.Format("select * from VipInfo where VipId = {0}", VipId.ToString());//标准表达式中数据类型不匹配。不能使用上面一样的单引号
@@ -259,6 +338,24 @@ namespace SysCard.DAL.Data
             }
             else return false;           
         }
+        public static bool VerifyConnExcel(string path)//验证连接数据库
+        {
+            OleDbConnection conn = null;
+            conn = Dbhelper.GetOleDbConnectionExcel(path);
+            try
+            {
+                conn.Open();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+
+            }
+        }
         public static bool VerifyConn()//验证连接数据库
         {
             OleDbConnection conn = null;
@@ -308,6 +405,33 @@ namespace SysCard.DAL.Data
                 }
                 else return null;
             }
+           
+        public static List<ObjInfo> GetALLObjInfo()//获取所有物品信息
+            {
+                string sql = "select * from PriceInfo";
+                OleDbDataReader dr = Dbhelper.ExecuteReader(sql);
+                List<ObjInfo> list = new List<ObjInfo>();
+                while (dr.Read())
+                {
+                    ObjInfo Obj = new ObjInfo();
+                    Obj.Index  = int.Parse(dr[0].ToString());
+                    Obj.Name = dr[1].ToString();
+                    Obj.Parameter1 = dr[2].ToString();
+                    Obj.Parameter2 = dr[3].ToString();
+                    Obj.Parameter3 = dr[4].ToString();
+                    Obj.BasePrice1 = dr[5].ToString();
+                    Obj.BasePrice2 = dr[6].ToString();
+                    Obj.BasePrice3 = dr[7].ToString();
+                    Obj.Comments = dr[8].ToString();
+                    
+                    //使用控件显示所有数据
+                    list.Add(Obj);
+                }
+                dr.Close();
+
+                return list;
+            }
+
             public static List<employeeInfo> GetALLEmployee()
             {
                 string sql = "select * from EmployeeInfo";
@@ -388,6 +512,92 @@ namespace SysCard.DAL.Data
 
     }
 
+    public class ObjInfo
+    {
+
+        public ObjInfo(uint status)//传入数字不同返回不同状态的特殊对象
+        {
+            if (status == 0)
+            {
+                name = "没有数据";
+                index = -1;
+                parameter1 = "没有数据";
+                parameter2 = "没有数据";
+                parameter3 = "没有数据";
+                basePrice1 = "没有数据";
+                basePrice2 = "没有数据";
+                basePrice3 = "没有数据";
+                comments = "没有数据";
+            }
+        }
+        public ObjInfo()
+        { }
+
+        private string name;
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        private int index;
+        public int Index
+        {
+            get { return index; }
+            set { index = value; }
+        }
+
+        private string parameter1;
+        public string Parameter1
+        {
+            get { return parameter1; }
+            set { parameter1 = value; }
+        }
+
+        private string parameter2;
+        public string Parameter2
+        {
+            get { return parameter2; }
+            set { parameter2 = value; }
+        }
+
+        private string parameter3;
+        public string Parameter3
+        {
+            get { return parameter3; }
+            set { parameter3 = value; }
+        }
+
+
+        private string basePrice1;
+        public string BasePrice1
+        {
+            get { return basePrice1; }
+            set { basePrice1 = value; }
+        }
+
+        private string basePrice2;
+        public string BasePrice2
+        {
+            get { return basePrice2; }
+            set { basePrice2 = value; }
+        }
+
+        private string basePrice3;
+        public string BasePrice3
+        {
+            get { return basePrice3; }
+            set { basePrice3 = value; }
+        }
+        private string comments;
+        public string Comments
+        {
+            get { return comments; }
+            set { comments = value; }
+        }
+
+
+    }
     public class VipInfo
     {
 
