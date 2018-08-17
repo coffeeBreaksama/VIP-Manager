@@ -49,13 +49,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.TopInTittle = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.NowLogName = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -243,7 +243,7 @@
             this.NewCardTittle.Name = "NewCardTittle";
             this.NewCardTittle.Size = new System.Drawing.Size(190, 46);
             this.NewCardTittle.TabIndex = 7;
-            this.NewCardTittle.Text = "会员登记";
+            this.NewCardTittle.Text = "报价修改";
             this.NewCardTittle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -281,7 +281,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(183, 52);
             this.label4.TabIndex = 7;
-            this.label4.Text = "系统设置";
+            this.label4.Text = "账号管理";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
@@ -294,21 +294,8 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(197, 52);
             this.label5.TabIndex = 7;
-            this.label5.Text = "会员查询";
+            this.label5.Text = "报价查询";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label6.Font = new System.Drawing.Font("宋体", 30F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label6.Location = new System.Drawing.Point(214, 136);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(121, 45);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "发卡";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
@@ -383,6 +370,19 @@
             this.NowLogName.TabIndex = 8;
             this.NowLogName.Text = "当前登陆：";
             // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Font = new System.Drawing.Font("宋体", 30F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label1.Location = new System.Drawing.Point(174, 135);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(190, 46);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "表格生成";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -391,10 +391,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1409, 746);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.NowLogName);
             this.Controls.Add(this.TopInTittle);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -417,7 +417,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_main";
-            this.Text = "卡达会员管理系统";
+            this.Text = "测试用版本";
             this.TransparencyKey = System.Drawing.SystemColors.ActiveBorder;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_main_FormClosing);
             this.Load += new System.EventHandler(this.Form_main_Load);
@@ -461,12 +461,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label TopInTittle;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label NowLogName;
+        private System.Windows.Forms.Label label1;
     }
 }

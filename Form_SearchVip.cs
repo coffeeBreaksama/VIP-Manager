@@ -15,8 +15,6 @@ namespace SysCard
     public partial class Form_SearchVip : Form
     {
 
-        static List<VipInfo> vip;
-        string path;
         static List<ObjInfo> data;
         
         public Form_SearchVip()
@@ -63,6 +61,7 @@ namespace SysCard
                 id = int.Parse(tex_id.Text);
             SearchData(tex_name.Text,id,textpara1.Text,textpara2.Text,textpara3.Text);
         }
+
 
 
       

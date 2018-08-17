@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using SysCard.Models;
 using SysCard.DAL;
+using SysCard.DAL.Data;
 namespace SysCard
 {
     public partial class Form_Product : Form
@@ -14,7 +15,7 @@ namespace SysCard
         public Form_Product()
         {
             InitializeComponent();
-            List<Pd_info> list = PdServices.getallpd();
+            List<employeeInfo> list = PdServices.getallpd();
             cmb_pd.DataSource = list;
             cmb_pd.DisplayMember = "pdname";
             cmb_pd.ValueMember = "pdid";

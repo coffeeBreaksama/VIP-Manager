@@ -1,12 +1,16 @@
 ﻿using System;
+using System.IO;
 using System.Data;
 using System.Collections.Generic;
 using System.Text;
 using SysCard.DAL.Waiter;
 using SysCard.DAL.Data;
 using System.Threading;//用于启用线程类;
-using System.IO.Ports;//用于调用串口类函数
+using System.Management;
 using System.Windows.Forms;
+using Microsoft.Win32;
+using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 
 
 namespace SysCard.DAL.Manager//主要的业务逻辑实现控制台
@@ -15,16 +19,136 @@ namespace SysCard.DAL.Manager//主要的业务逻辑实现控制台
     {
         public static uint NowLogId;
         public static string NowLogName;
-        public static AdminType NowLogType;
+        public static string NowLogType;
         public static admin NowLogAdmin;
         public static PrivilegeInfo NowPrivilege;
         public static List<ObjInfo> ObjInfoData;
         public static DataSet ds;
-
+        public static string CpuId;
+        public static string HdId;
+        public static string FeatureCode;
+        public static bool FirstUse;
+        private static string KEY = "TONGYUEY";
 
         public ControCenter()
         {
             LoadObjData();
+            //KEY = GenerateKey();
+        }
+        public string GenerateKey()//产生key
+        {
+            DESCryptoServiceProvider desCrypto = (DESCryptoServiceProvider)DESCryptoServiceProvider.Create();
+            return ASCIIEncoding.ASCII.GetString(desCrypto.Key);
+        }
+        public static string Encrypt(string pToEncrypt, string sKey)//加密
+        {
+            System.Security.Cryptography.DESCryptoServiceProvider des = new DESCryptoServiceProvider();
+            byte[] inputByteArray = Encoding.Default.GetBytes(pToEncrypt);
+            des.Key = ASCIIEncoding.ASCII.GetBytes(sKey);
+            des.IV = ASCIIEncoding.ASCII.GetBytes(sKey);
+            MemoryStream ms = new MemoryStream();
+            CryptoStream cs = new CryptoStream(ms, des.CreateEncryptor(), CryptoStreamMode.Write);
+            cs.Write(inputByteArray, 0, inputByteArray.Length);
+            cs.FlushFinalBlock();
+            StringBuilder ret = new StringBuilder();
+            foreach (byte b in ms.ToArray())
+            {
+                ret.AppendFormat("{0:X2}", b);
+            }
+            ret.ToString();
+            return ret.ToString();
+
+        }
+        public static string Decrypt(string pToDecrypt, string sKey)//解密
+        {
+            DESCryptoServiceProvider des = new DESCryptoServiceProvider();
+
+            byte[] inputByteArray = new byte[pToDecrypt.Length / 2];
+            for (int x = 0; x < pToDecrypt.Length / 2; x++)
+            {
+                int i = (Convert.ToInt32(pToDecrypt.Substring(x * 2, 2), 16));
+                inputByteArray[x] = (byte)i;
+            }
+
+            des.Key = ASCIIEncoding.ASCII.GetBytes(sKey);
+            des.IV = ASCIIEncoding.ASCII.GetBytes(sKey);
+            MemoryStream ms = new MemoryStream();
+            CryptoStream cs = new CryptoStream(ms, des.CreateDecryptor(), CryptoStreamMode.Write);
+            cs.Write(inputByteArray, 0, inputByteArray.Length);
+            cs.FlushFinalBlock();
+
+            StringBuilder ret = new StringBuilder();
+
+            return System.Text.Encoding.Default.GetString(ms.ToArray());
+        }
+
+        public static bool CertifyCDK(string CDK)//验证CDK
+        {
+            string testCDK = Encrypt(FeatureCode+":150", KEY);
+
+            try
+            {
+                string middle = Decrypt(CDK, KEY);//解密CDK
+                string[] sArray = Regex.Split(middle, ":", RegexOptions.IgnoreCase);
+                uint day = uint.Parse(sArray[1]);
+                if (sArray[0] == FeatureCode)//验证成功
+                {
+                    MessageBox.Show("激活成功！欢迎使用！");
+                    if (FirstUse == true)
+                    {
+                        DataService.UpdataPer(FeatureCode,day);//更新授权表数据
+                    }
+                    return true;
+                }
+                    
+                else
+                    return false;
+            }
+            catch
+            {
+                return false;
+            }
+         
+
+
+        }
+
+        public static string GetFeatureCode()//计算特征码
+        {
+            string code = CpuId;
+            try
+            {
+                FeatureCode = Encrypt(CpuId, KEY);
+
+            }
+            catch
+            {
+                MessageBox.Show("获取序列号失败，请联系销售人员");
+            }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+            return FeatureCode;
+        }
+
+        public static string  GetCpuDeskId()
+        {
+                string cpuInfo = "";//cpu序列号 
+                ManagementClass mc = new ManagementClass("Win32_Processor");
+                ManagementObjectCollection moc = mc.GetInstances();
+                foreach (ManagementObject mo in moc)
+                {
+                    cpuInfo = mo.Properties["ProcessorId"].Value.ToString();
+                }
+                CpuId = cpuInfo;
+               /* string deskInfo = "";//desk序列号 
+                ManagementClass mc1 = new ManagementClass("Win32_DiskDrive");
+                ManagementObjectCollection moc1 = mc.GetInstances();
+                foreach (ManagementObject mo1 in moc1)
+                {
+                    deskInfo = mo1.Properties["ProcessorId"].Value.ToString();
+                }
+                HdId = cpuInfo;
+                return cpuInfo + ";" + deskInfo;*/
+                return cpuInfo;
         }
         public static void LoadObjData()
         {
@@ -204,18 +328,13 @@ namespace SysCard.DAL.Manager//主要的业务逻辑实现控制台
             //data.CollectMoney(CollectMoney)
             NowLogAdmin.SellCommodity(vip,type, CommodityNum);
         }*/
-        public static bool LogIn(string LogName,string LogPassword,AdminType LogType)
+        public static bool LogIn(string LogName,string LogPassword)
         {
-            employeeInfo employee = DataService.LoginEmployee(LogName, LogPassword, LogType);
+            employeeInfo employee = DataService.LoginEmployee(LogName, LogPassword);
             if (employee.Name != null)
             {
-                NowLogName = LogName;
-                NowLogType = LogType;
-                if (LogType == AdminType.老板)
-                {
-                    NowLogAdmin = new Boss(LogName);
-                }
-                else NowLogAdmin = new admin(LogName);
+                NowLogName = employee.Name.ToString();
+                NowLogType = employee.Type.ToString();
                 return true;
             }
             else return false;
@@ -366,142 +485,5 @@ namespace SysCard.DAL.Manager//主要的业务逻辑实现控制台
 
 
 
-    public class Port
-    {
-        public static Form UsingForm;
-        public static string CardNum;
-        public static string CardBalance;
-
-        public static string iPort = "COM3"; //默认为串口1
-
-        public static int iRate = 9600; //波特率1200,2400,4800,9600
-        public static byte bSize = 8; //8 bits
-        public static int iTimeout = 10000; //延时时长
-        public static SerialPort serialPort1 = new SerialPort();//定义一个串口类的串口变量
-        static string serialReadString = ""; //用于串口接收数据
-        public static bool IsCirlce;//判断是否选用循环发送数据
-        public static Thread Thd_Send; //开辟一个专用于发送数据的线程        
-        public static byte[] recb = new Byte[100];  //用于存放接收数据的数组
-
-
-        public Port(Form form)
-        {
-            UsingForm = form;
-        }
-        public static string GetCardNum()
-        {
-            
-            return CardNum;          
-        }
-
-        public static  void ChangePort(string port)
-        {
-            iPort = port;
-        }
-        public static string GetCardBalance()
-        {
-           // OpenPort();
-            return CardBalance;
-        }
-
-        public static void OpenPort()
-        {
-            //UsingForm = form;
-            if (serialPort1.IsOpen)
-            {
-                serialPort1.Close();
-            }
-            if (iPort.Length != 0)
-            {
-                Parity myParity = Parity.None;
-                StopBits MyStopBits = StopBits.One;
-
-                serialPort1.PortName = iPort;
-                serialPort1.BaudRate = iRate;
-                serialPort1.DataBits = bSize;
-                serialPort1.Parity = myParity;
-                serialPort1.StopBits = MyStopBits;
-                serialPort1.ReadTimeout = iTimeout;
-                try
-                {
-                    serialPort1.Open();
-                    serialPort1.DataReceived += new SerialDataReceivedEventHandler(sp_DataReceived);
-
-                    string message = "串口成功开启……\r\n";
-                    message = iPort + message;
-                    //MessageBox.Show(message);
-
-                }
-                catch (UnauthorizedAccessException)
-                {
-                    string message = "串口开启失败……\r\n串口被占用";
-                    message = iPort + message;
-                    MessageBox.Show(message);
-                }
-                catch (System.IO.IOException)
-                {
-                    string message = "串口开启失败……\r\n不存在的串口！";
-                    message = iPort + message;
-                    MessageBox.Show(message);
-                }
-                catch (ArgumentException)
-                {
-                    string message = "串口开启失败……\r\n无效的串口名称！";
-                    message = iPort + message;
-                    MessageBox.Show(message);
-                }
-            }
-        }
-        private static void sp_DataReceived(object sender, SerialDataReceivedEventArgs e) //接收函数只
-        {
-            System.Threading.Thread.Sleep(100);
-
-            //延时100ms等待接收完数据
-            //this.Invoke就是跨线程访问ui的方法，也是本文的范例
-            int i = 0;
-            int lenRead;
-
-            try
-            {
-                lenRead = serialPort1.Read(recb, 0, 100); //读取数据
-            }
-            catch(System.TimeoutException)
-            {
-                lenRead = 0;
-            }
-            for (i = 0; i < lenRead; i++) serialReadString += ((char)recb[i]);
-
-            serialPort1.DiscardInBuffer(); //读完放弃缓冲区里面的数据
-            if (lenRead > 0) //说明接到一个完整的数据了
-            {
-                if (recb[lenRead - 1] == '\0')
-                {
-                    string m_valRec = "";
-                    string m_cardIdRec = "";
-                    int len = serialReadString.Length;
-
-                    for (i = 0; i < len; i++)
-                    {
-                        if (serialReadString[i] != '\n' && serialReadString[i] != ',') m_valRec += serialReadString[i];
-                        else break;
-                    }
-                    i++;
-                    for (; i < len; i++)
-                    {
-                        if (serialReadString[i] != '\n' && serialReadString[i] != ',') m_cardIdRec += serialReadString[i];
-                        else break;
-                    }
-
-                    serialReadString = ""; //清除接收数据
-                    if (m_cardIdRec.Length > 0)
-                    {
-
-                                CardBalance = m_valRec;
-                                CardNum = m_cardIdRec;
-                    }
-                    serialReadString = "";
-                }
-            }
-        }
-    }
+   
 }

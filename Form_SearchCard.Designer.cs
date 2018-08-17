@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.Card = new System.Windows.Forms.Label();
             this.TCardNum = new System.Windows.Forms.Label();
             this.CardBalance = new System.Windows.Forms.Label();
@@ -43,7 +42,6 @@
             this.SexStr = new System.Windows.Forms.Label();
             this.BirthStr = new System.Windows.Forms.Label();
             this.LevelNum = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Status = new System.Windows.Forms.Label();
             this.StatusStr = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -192,11 +190,6 @@
             this.LevelNum.Text = "会员等级：";
             this.LevelNum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // Status
             // 
             this.Status.Font = new System.Drawing.Font("宋体", 20F);
@@ -261,7 +254,6 @@
         private System.Windows.Forms.Label SexStr;
         private System.Windows.Forms.Label BirthStr;
         private System.Windows.Forms.Label LevelNum;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label Status;
         private System.Windows.Forms.Label StatusStr;
     }

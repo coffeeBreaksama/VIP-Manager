@@ -16,7 +16,6 @@ namespace SysCard
         {
             InitializeComponent();
             this.CenterToScreen();
-            this.timer1.Enabled = true;
             //this.FormBorderStyle = FormBorderStyle.None;
             this.Show();
         }
@@ -32,10 +31,7 @@ namespace SysCard
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)//System.Data.OleDb.OleDbException错误防范
-        {
-            this.TCardNum.Text = waiter.GetPortCardNum();
-        }
+
 
         private void BtnNewCard_Click(object sender, EventArgs e)
         {

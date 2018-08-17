@@ -9,6 +9,7 @@ using SysCard.DAL;
 using System.Data.OleDb;
 using SysCard.DAL.Waiter;
 using SysCard.DAL.Manager;
+using SysCard.DAL.Data;
 
 
 namespace SysCard
@@ -21,6 +22,7 @@ namespace SysCard
             this.FormBorderStyle = FormBorderStyle.None;
             this.labload.Width = 0;
             CenterToScreen();
+            ControCenter.GetCpuDeskId();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -30,7 +32,6 @@ namespace SysCard
             {
                 this.timer1.Enabled = false;
                 waiter.StartLog(this);
-
             }
         }
     }

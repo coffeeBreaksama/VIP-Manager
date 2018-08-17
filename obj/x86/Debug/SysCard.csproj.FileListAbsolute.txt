@@ -81,9 +81,10 @@ C:\Users\coffee\Documents\GitHub\VIP-Manager\obj\x86\Debug\SysCard.Form_SearchCa
 C:\Users\coffee\Documents\GitHub\VIP-Manager\obj\x86\Debug\SysCard.Form_SearchVip.resources
 C:\Users\coffee\Documents\GitHub\VIP-Manager\obj\x86\Debug\SysCard.Form_TestForm.resources
 C:\Users\coffee\Documents\GitHub\VIP-Manager\obj\x86\Debug\SysCard.Form_TopIn.resources
-C:\Users\coffee\Documents\GitHub\VIP-Manager\obj\x86\Debug\SysCard.Form_UserInfo.resources
 C:\Users\coffee\Documents\GitHub\VIP-Manager\obj\x86\Debug\SysCard.For_AddPrice.resources
 C:\Users\coffee\Documents\GitHub\VIP-Manager\obj\x86\Debug\SysCard.Properties.Resources.resources
 C:\Users\coffee\Documents\GitHub\VIP-Manager\obj\x86\Debug\SysCard.Form_dispPk.resources
 C:\Users\coffee\Documents\GitHub\VIP-Manager\obj\x86\Debug\SysCard.Test.resources
 C:\Users\coffee\Documents\GitHub\VIP-Manager\obj\x86\Debug\SysCard.csproj.GenerateResource.Cache
+C:\Users\coffee\Documents\GitHub\VIP-Manager\obj\x86\Debug\SysCard.Form_EditPrice.resources
+C:\Users\coffee\Documents\GitHub\VIP-Manager\obj\x86\Debug\SysCard.Form_FirstGuild.resources

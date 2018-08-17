@@ -54,8 +54,7 @@ namespace SysCard
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            this.TCardNum.Text = waiter.GetPortCardNum();
-            this.CardBalanceNum.Text = waiter.GetCardBalanceNum(this.TCardNum.Text);
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

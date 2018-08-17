@@ -31,14 +31,14 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tex_user = new System.Windows.Forms.TextBox();
             this.tex_pwd = new System.Windows.Forms.TextBox();
-            this.tex_name = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -63,17 +63,10 @@
             // 
             // tex_pwd
             // 
-            this.tex_pwd.Location = new System.Drawing.Point(66, 73);
+            this.tex_pwd.Location = new System.Drawing.Point(66, 42);
             this.tex_pwd.Name = "tex_pwd";
             this.tex_pwd.Size = new System.Drawing.Size(100, 21);
             this.tex_pwd.TabIndex = 2;
-            // 
-            // tex_name
-            // 
-            this.tex_name.Location = new System.Drawing.Point(66, 41);
-            this.tex_name.Name = "tex_name";
-            this.tex_name.Size = new System.Drawing.Size(100, 21);
-            this.tex_name.TabIndex = 2;
             // 
             // label1
             // 
@@ -83,15 +76,6 @@
             this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 3;
             this.label1.Text = "用户名";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 42);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "姓  名";
             // 
             // label3
             // 
@@ -124,30 +108,47 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.tex_pwd);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.tex_user);
-            this.tabPage1.Controls.Add(this.tex_name);
-            this.tabPage1.Location = new System.Drawing.Point(4, 21);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(197, 188);
+            this.tabPage1.Size = new System.Drawing.Size(197, 187);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "密码修改";
             // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage2.Location = new System.Drawing.Point(4, 21);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(259, 216);
+            this.tabPage2.Size = new System.Drawing.Size(197, 187);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "添加管理员";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(10, 45);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "原密码";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(66, 73);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 21);
+            this.textBox1.TabIndex = 5;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // FormUpdate
             // 
@@ -169,13 +170,13 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox tex_user;
         private System.Windows.Forms.TextBox tex_pwd;
-        private System.Windows.Forms.TextBox tex_name;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
     }
 }

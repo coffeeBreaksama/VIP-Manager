@@ -47,11 +47,7 @@ namespace SysCard.DAL.Waiter
         {
             return DataService.GetCardStatus(CardNum);
         }
-        public static void RunSearchVip()
-        {
-            Form_SearchVip SearchVip = new Form_SearchVip();
-            //Port.OpenPort();
-        }
+
         public static List<VipInfo> SearchVipInfo(string name, string phone, string CardNum)
         {
             return ControCenter.SearchVipInfo(name, phone, CardNum);
@@ -65,11 +61,7 @@ namespace SysCard.DAL.Waiter
         {
             return ControCenter.SearchAllVipInfo();
         }
-        public static void RunAddNewVip()
-        {
-            Form_NewVip TopIn = new Form_NewVip();
-            Port.OpenPort();
-        }
+
         public static void AddNewViper(VipInfo vip, string CardNum)
         {
             if(ControCenter.AddNewViper(vip,CardNum))
@@ -124,16 +116,8 @@ namespace SysCard.DAL.Waiter
             }
             else MessageBox.Show("失败");
         }
-        public static void RunTopIn()
-        {
-            Form_TopIn TopIn = new Form_TopIn();
-            Port.OpenPort();
-        }
-        public static void RunConsu()
-        {
-            Form_Consu Consu = new Form_Consu();
-            Port.OpenPort();
-        }
+
+
         public static void SentNewCard(string CardNum)
         {
             if (ControCenter.SentNewCard(CardNum)) MessageBox.Show("发卡成功");
@@ -154,8 +138,15 @@ namespace SysCard.DAL.Waiter
             else
             {
                 init.Visible = false;
-                Form_log Log = new Form_log();    
-                waiter.Log("1", "1", AdminType.雇员, Log);
+                ControCenter.FirstUse = DataService.IsFirstUse();
+                if (ControCenter.FirstUse)
+                {
+                    Form_FirstGuild guild = new Form_FirstGuild();
+                }
+                else
+                {
+                    Form_log Log = new Form_log();
+                }
             }
         }
        /* public static List<ObjInfo> GetExcelSource(Form form, string path)
@@ -173,22 +164,8 @@ namespace SysCard.DAL.Waiter
         }
         */
 
-        public static string GetPortCardNum()
-        {
-            if (Port.GetCardNum() == null)
-                return "未读取到卡号";
-            else return Port.GetCardNum();
-        }
-        public static void RunSearchCard()
-        {
-            Form_SearchCard searchCard = new Form_SearchCard();
-            Port.OpenPort();//TODO 把OpenOprt 和 OpenConnect 放在初始化里，结束的时候统一关闭；
-        }
-        public static void RunNewCard()
-        {
-            Form_NewCard newCard = new Form_NewCard();
-            Port.OpenPort();
-        }
+      
+    
         public void IntService()
         {
 
@@ -205,14 +182,13 @@ namespace SysCard.DAL.Waiter
         {
 
         }
-        public static void Log(string LogName, string LogPassword, AdminType LogType, Form_log log)
+        public static void Log(string LogName, string LogPassword, Form_log log)
         {
-            if (ControCenter.LogIn(LogName, LogPassword, LogType))
+            if (ControCenter.LogIn(LogName, LogPassword))
             {
                 log.Visible = false;
                 ControCenter.LoadObjData();
                 Form_main f = new Form_main();
-                f.ShowDialog();
 
 
             }

@@ -13,7 +13,6 @@ namespace SysCard
 
         private string input;
         private string output;
-        private int i;
         public Test()
         {
             InitializeComponent();

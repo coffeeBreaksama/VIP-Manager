@@ -5,30 +5,225 @@ using System.Text;
 using SysCard.DAL.Manager;
 using System.Data.OleDb;
 using System.Windows.Forms;
+
 namespace SysCard.DAL.Data
 {
+
     public class DataService
     {
         public static DataSet ds;
         public static OleDbDataAdapter myCommand;
         public static string strConn;
         public static string strExcel;
+        public static OleDbConnection conn;
 
-        public static DataSet OpenExcelToDs(string Path)
+
+        public static int UpdataPer(string featureCode,uint days)
         {
+            string sql = string.Format(" update  Log set per='{4}'  where ID = {0} and CDK = '{1}' and Data= '{2}' and per='{3}'", 1, "coffee", "coffee", "coffee","Used");//修改第一LOG
+            int val = Dbhelper.ExecuteNonQuery(sql);
+            sql = string.Format("insert into Log (CDK,Data,per) values('{0}','{1}','{2}')", featureCode, System.DateTime.Now.ToString(), days.ToString());
+            val = Dbhelper.ExecuteNonQuery(sql);
+            return val;
+
+        }
+
+        public static bool IsFirstUse()
+        {
+            string sql = string.Format(" select * from  Log where ID = {0} and CDK = '{1}' and Data= '{2}' and per='{3}'", 1,"coffee","coffee","coffee");
+            OleDbDataReader dr = Dbhelper.ExecuteReader(sql);
+            try
+            {
+                if (dr.Read())
+                {
+                   // MessageBox.Show("true");
+                    return true;
+                }
+                else
+                    //MessageBox.Show("false");
+                    return false;
+
+            }
+            catch
+            {
+                MessageBox.Show("false");
+                return false;
+            }
+        }
+        public static void ImportExcelToAcess(string path)//A1
+        {
+            OpenExcelToDs(path);//数据缓存至DataService.ds中。
+            ObjInfo obj = new ObjInfo();
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                obj.Name = ds.Tables[0].Rows[i][1].ToString();
+                obj.Parameter1 = ds.Tables[0].Rows[i][2].ToString();
+                obj.Parameter2 = ds.Tables[0].Rows[i][3].ToString();
+                obj.Parameter3 = ds.Tables[0].Rows[i][4].ToString();
+                obj.BasePrice1 = ds.Tables[0].Rows[i][5].ToString();
+                obj.BasePrice2 = ds.Tables[0].Rows[i][6].ToString();
+                obj.BasePrice3 = ds.Tables[0].Rows[i][7].ToString();
+                obj.Comments = ds.Tables[0].Rows[i][8].ToString();
+
+                obj.Index = IsExistInAcess(obj);
+                if (obj.Index >= 0)
+                {
+                    
+                    EditObj("CHANGE", obj);
+                }
+                else
+                {
+                    EditObj("ADD", obj);
+                }
+            }
+
+
+        }
+
+        public static int IsExistInAcess(ObjInfo obj)
+        {
+            string sql = string.Format(" select * from  PriceInfo where 物品名称 = '{0}' and 参数1 = '{1}' and 参数2= '{2}' and 参数3= '{3}'", obj.Name, obj.Parameter1, obj.Parameter2,
+                    obj.Parameter3);
+            OleDbDataReader dr = Dbhelper.ExecuteReader(sql);
+            if (dr != null)
+            {
+                if (dr.Read())
+                {
+                    return int.Parse(dr[0].ToString());
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            else
+            {
+                return -1;//-1代表没有寻求到序号。
+            }
+            //return true;
+        }
+        public static employeeInfo LoginEmployee(string username, string userpwd)//验证密码是否正确
+        {
+            string sql = string.Format("select * from EmployeeInfo where EmployeeName='{0}' and EmployeePassword='{1}'", username, userpwd);
+            OleDbDataReader dr = Dbhelper.ExecuteReader(sql);
+            employeeInfo Employee = new employeeInfo();
+
+            if (dr != null)
+            {
+                if (dr.Read())
+                {
+                    Employee.Id = uint.Parse(dr[0].ToString());
+                    Employee.Name = dr[1].ToString();
+                    Employee.Password = dr[2].ToString();
+                    Employee.Type = dr[4].ToString();
+                }
+                return Employee;
+            }
+            else return null;
+        }
+
+        public static int EditObj(string cmd,ObjInfo obj)//编辑价格
+        {
+            if (cmd == "DEL")
+            {
+                string sql = string.Format("delete * from PriceInfo where 序号={0}",obj.Index);
+                int val = Dbhelper.ExecuteNonQuery(sql);
+                return val;
+            }
+            else if (cmd == "ADD")
+            {
+                string sql = string.Format("insert into PriceInfo (物品名称,参数1,参数2,参数3,价格1,价格2,价格3,备注) values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')", obj.Name, obj.Parameter1,obj.Parameter2,
+                    obj.Parameter3,obj.BasePrice1,obj.BasePrice2,obj.BasePrice3,obj.Comments);
+                int val = Dbhelper.ExecuteNonQuery(sql);
+                return val;
+            }
+            else if (cmd == "CHANGE")//传进来的是带原ID的修改后obj
+            {
+                string sql = string.Format("update PriceInfo set 物品名称='{1}' , 参数1='{2}' , 参数2='{3}' , 参数3='{4}' , 价格1='{5}' , 价格2='{6}' , 价格3='{7}'  where 序号={0}"
+                  ,obj.Index, obj.Name, obj.Parameter1, obj.Parameter2,
+                    obj.Parameter3, obj.BasePrice1, obj.BasePrice2, obj.BasePrice3);
+                int val = Dbhelper.ExecuteNonQuery(sql);
+                return val;
+            }
+            ControCenter.ObjInfoData.Clear();
+            ControCenter.ObjInfoData = GetALLObjInfo();//刷新控制中心的价格数据缓存。
+            return 0;
+        }
+
+        public static List<ObjInfo> GetListFormDs()//从Dataset返回List obj列表
+        {
+            List<ObjInfo> viewList = new List<ObjInfo>();
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                ObjInfo obj = new ObjInfo();
+                obj.Index = int.Parse(ds.Tables[0].Rows[i][0].ToString());
+                obj.Name = ds.Tables[0].Rows[i][1].ToString();
+                obj.Parameter1 = ds.Tables[0].Rows[i][2].ToString();
+                obj.Parameter2 = ds.Tables[0].Rows[i][3].ToString();
+                obj.Parameter3 = ds.Tables[0].Rows[i][4].ToString();
+                obj.BasePrice1 = ds.Tables[0].Rows[i][5].ToString();
+                obj.BasePrice2 = ds.Tables[0].Rows[i][6].ToString();
+                obj.BasePrice3 = ds.Tables[0].Rows[i][7].ToString();
+                obj.Comments = ds.Tables[0].Rows[i][8].ToString();
+                viewList.Add(obj);
+
+            }
+            return viewList;
+
+        }
+
+        public static bool DsCoverToExcel(string path)//将Dataset中的数据创建成新表格
+        {
+            conn.Close();
+            String sConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;" +
+            "Data Source=" + path + "生成结果.xls"+
+            ";Extended Properties=Excel 8.0;";
+            OleDbConnection cn = new OleDbConnection(sConnectionString);
+            string sqlCreate = "CREATE TABLE 软件填充 ([序号] VarChar,[物品名称] VarChar,[参数1] VarChar,[参数2] VarChar,[参数3] VarChar,[价格1] VarChar,[价格2] VarChar,[价格3] VarChar,[备注2] VarChar)";
+            OleDbCommand cmd = new OleDbCommand(sqlCreate, cn);
+            cn.Open();
+            //创建TestSheet工作表
+            try
+            {
+                cmd.ExecuteNonQuery();
+                //添加数据
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    cmd.CommandText = string.Format("INSERT INTO 软件填充 VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')", ds.Tables[0].Rows[i][0].ToString(), ds.Tables[0].Rows[i][1].ToString(), ds.Tables[0].Rows[i][2].ToString(),
+                        ds.Tables[0].Rows[i][3].ToString(), ds.Tables[0].Rows[i][4].ToString(), ds.Tables[0].Rows[i][5].ToString(), ds.Tables[0].Rows[i][6].ToString(), ds.Tables[0].Rows[i][7].ToString(), ds.Tables[0].Rows[i][8].ToString());
+                    cmd.ExecuteNonQuery();
+                }
+                MessageBox.Show("生成表格成功");
+                //关闭连接
+                cn.Close();
+            }
+            catch
+            {
+                MessageBox.Show("生成表格失败");
+            }
+            
+
+            return true;
+        }
+
+        public static DataSet OpenExcelToDs(string Path)//打开excel文件，拷贝数据至Dataset
+        {
+  
             strConn = "Provider=Microsoft.ACE.OLEDB.12.0;" + "Data Source=" + Path + ";" + "Extended Properties=Excel 8.0;";//要更新支持xlsx格式
-            OleDbConnection conn = new OleDbConnection(strConn);
+            conn = new OleDbConnection(strConn);
             conn.Open();
             strExcel = "";
             myCommand = null;
             ds = null;
-            strExcel = "select * from [sheet1$]";
+            DataTable sheetsName = conn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new object[] { null, null, null, "Table" }); //得到所有sheet的名字
+            string firstSheetName = sheetsName.Rows[0][2].ToString(); //得到第一个sheet的名字
+            strExcel = string.Format("SELECT * FROM [{0}]", firstSheetName); //查询字符串
+            //strExcel = "select * from [PriceInfo]";
             myCommand = new OleDbDataAdapter(strExcel, strConn);
             ds = new DataSet(); myCommand.Fill(ds, "table1");
-            //ds.Tables["table1"].Rows[2][2] = "fuck";
-            //myCommand.Fill(ds, "table1");
-
+            conn.Close();
             return ds;
+            
         }
 
         public static bool FillPriceOfDs()
@@ -49,7 +244,7 @@ namespace SysCard.DAL.Data
                 ds.Tables[0].Rows[i][8] = obj.Comments;
 
             }
-            myCommand.Fill(ds, "table1");
+            //myCommand.Fill(ds, "table1");
             return true;
         }
 
@@ -76,7 +271,7 @@ namespace SysCard.DAL.Data
             }
             if (time > 1)
             {
-                obj.Comments = "报价单中存在相同的此类产品，请在报价查询界面核查";
+                obj.Comments = "存在多个同参数产品，这里以最后一个的价格填充。请在报价查询界面核查";
                 time = 0;
             }
             else if (time == 0)
@@ -338,7 +533,7 @@ namespace SysCard.DAL.Data
             }
             else return false;           
         }
-        public static bool VerifyConnExcel(string path)//验证连接数据库
+     /*   public static bool VerifyConnExcel(string path)//验证连接数据库
         {
             OleDbConnection conn = null;
             conn = Dbhelper.GetOleDbConnectionExcel(path);
@@ -355,7 +550,7 @@ namespace SysCard.DAL.Data
             {
 
             }
-        }
+        }*/
         public static bool VerifyConn()//验证连接数据库
         {
             OleDbConnection conn = null;
@@ -378,13 +573,17 @@ namespace SysCard.DAL.Data
 
             public static int AddEmployee(employeeInfo Employee)
             {
-                string sql = string.Format("insert into EmployeeInfo (ID,EmployeeName,EmployeePassword) values('{0}','{1}','{2}')", Employee.Id, Employee.Name, Employee.Password);
-                return Dbhelper.ExecuteNonQuery(sql);
+                if (Employee.Name != "" && Employee.Password != "" && LoginEmployee(Employee.Name, Employee.Password).Name == null)
+                {
+                    string sql = string.Format("insert into EmployeeInfo (EmployeeName,EmployeePassword,CreateTime,EmployeeType) values('{0}','{1}','{2}','{3}')", Employee.Name, Employee.Password, System.DateTime.Now.ToString(), Employee.Type);
+                    return Dbhelper.ExecuteNonQuery(sql);
+                }
+                return 0;
             }
 
             public static int UpdataEmployee(employeeInfo Employee)
             {
-                string sql = string.Format("update EmployeeInfo (ID,EmployeeName,EmployeePassword) values('{0}','{1}','{2}')", Employee.Id, Employee.Name, Employee.Password);
+                string sql = string.Format("update EmployeeInfo set EmployeePassword='{1}' where EmployeeName='{0}'", Employee.Name, Employee.Password);
                 return Dbhelper.ExecuteNonQuery(sql);
             }
             public static employeeInfo LoginEmployee(string username, string userpwd, AdminType LogType)
@@ -768,6 +967,13 @@ namespace SysCard.DAL.Data
         {
             get { return createTime; }
             set { createTime = value; }
+        }
+
+        private string type;
+        public string Type
+        {
+            get { return type; }
+            set { type = value; }
         }
     }
 

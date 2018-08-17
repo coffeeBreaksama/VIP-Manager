@@ -28,21 +28,16 @@ namespace SysCard
             this.btn_can.TabIndex = 3;
             this.FormBorderStyle = FormBorderStyle.None;
             this.Show();
-        }
-   /*     public Form_log(Form f)
-        {
-            InitializeComponent();
-            this.CenterToScreen();
-            this.tex_pwd.PasswordChar = '*';
-            this.tex_User.TabIndex = 0;
-            this.tex_pwd.TabIndex = 1;
-            this.btn_log.TabIndex = 2;
-            this.btn_can.TabIndex = 3;
-            this.FormBorderStyle = FormBorderStyle.None;
+            //MessageBox.Show(ControCenter.GetCpuDeskId());
+            ControCenter.GetFeatureCode();
+            if (ControCenter.FirstUse)
+            {
+ 
+            }
 
         }
         
-        /*private void log()
+        private void log()
         {
             AdminType type;
             if (this.LogType.CheckState == CheckState.Checked)
@@ -57,7 +52,7 @@ namespace SysCard
             {
                 if (employee.Name != null)
                 {
-                    Form_main f = new Form_main(ControCenter.NowLogAdmin, this);
+                    Form_main f = new Form_main();
                     f.Show();
                     this.Visible = false;
                 }
@@ -71,7 +66,7 @@ namespace SysCard
             {
                 MessageBox.Show("系统发生不明错误，请联系管理员！！");
             }
-        }*/
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -80,15 +75,7 @@ namespace SysCard
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            AdminType type;
-            if (this.LogType.CheckState == CheckState.Checked)
-            {
-                type = AdminType.老板;
-            }
-            else
-                type = AdminType.雇员;
-            waiter.Log(this.tex_User.Text, this.tex_pwd.Text, type, this);
+            waiter.Log(this.tex_User.Text, this.tex_pwd.Text, this);
 
         }
 

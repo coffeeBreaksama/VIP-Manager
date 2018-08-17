@@ -41,6 +41,7 @@
             this.tex_id = new System.Windows.Forms.TextBox();
             this.tex_name = new System.Windows.Forms.TextBox();
             this.Search = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -57,6 +58,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.textpara3);
             this.groupBox2.Controls.Add(this.textpara2);
             this.groupBox2.Controls.Add(this.textpara1);
@@ -74,32 +76,32 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             // 
-            // textBox3
+            // textpara3
             // 
-            this.textpara3.Location = new System.Drawing.Point(878, 79);
-            this.textpara3.Name = "textBox3";
+            this.textpara3.Location = new System.Drawing.Point(885, 141);
+            this.textpara3.Name = "textpara3";
             this.textpara3.Size = new System.Drawing.Size(100, 21);
             this.textpara3.TabIndex = 8;
             this.textpara3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
-            // textBox2
+            // textpara2
             // 
-            this.textpara2.Location = new System.Drawing.Point(678, 81);
-            this.textpara2.Name = "textBox2";
+            this.textpara2.Location = new System.Drawing.Point(685, 143);
+            this.textpara2.Name = "textpara2";
             this.textpara2.Size = new System.Drawing.Size(100, 21);
             this.textpara2.TabIndex = 7;
             // 
-            // textBox1
+            // textpara1
             // 
-            this.textpara1.Location = new System.Drawing.Point(450, 81);
-            this.textpara1.Name = "textBox1";
+            this.textpara1.Location = new System.Drawing.Point(457, 143);
+            this.textpara1.Name = "textpara1";
             this.textpara1.Size = new System.Drawing.Size(100, 21);
             this.textpara1.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(804, 84);
+            this.label3.Location = new System.Drawing.Point(811, 146);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 12);
             this.label3.TabIndex = 5;
@@ -108,7 +110,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(601, 84);
+            this.label2.Location = new System.Drawing.Point(608, 146);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 12);
             this.label2.TabIndex = 4;
@@ -117,7 +119,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(373, 84);
+            this.label1.Location = new System.Drawing.Point(380, 146);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 12);
             this.label1.TabIndex = 3;
@@ -126,7 +128,7 @@
             // Phone
             // 
             this.Phone.AutoSize = true;
-            this.Phone.Location = new System.Drawing.Point(188, 84);
+            this.Phone.Location = new System.Drawing.Point(195, 146);
             this.Phone.Name = "Phone";
             this.Phone.Size = new System.Drawing.Size(29, 12);
             this.Phone.TabIndex = 2;
@@ -135,35 +137,45 @@
             // name
             // 
             this.name.AutoSize = true;
-            this.name.Location = new System.Drawing.Point(9, 84);
+            this.name.Location = new System.Drawing.Point(16, 146);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(53, 12);
             this.name.TabIndex = 2;
             this.name.Text = "物品名称";
             // 
-            // tex_phone
+            // tex_id
             // 
-            this.tex_id.Location = new System.Drawing.Point(239, 81);
-            this.tex_id.Name = "tex_phone";
+            this.tex_id.Location = new System.Drawing.Point(246, 143);
+            this.tex_id.Name = "tex_id";
             this.tex_id.Size = new System.Drawing.Size(100, 21);
             this.tex_id.TabIndex = 1;
             // 
             // tex_name
             // 
-            this.tex_name.Location = new System.Drawing.Point(68, 81);
+            this.tex_name.Location = new System.Drawing.Point(75, 143);
             this.tex_name.Name = "tex_name";
             this.tex_name.Size = new System.Drawing.Size(100, 21);
             this.tex_name.TabIndex = 1;
             // 
             // Search
             // 
-            this.Search.Location = new System.Drawing.Point(1054, 79);
+            this.Search.Location = new System.Drawing.Point(1061, 141);
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(75, 23);
             this.Search.TabIndex = 0;
             this.Search.Text = "查询";
             this.Search.UseVisualStyleBackColor = true;
             this.Search.Click += new System.EventHandler(this.Search_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("宋体", 15F);
+            this.label4.Location = new System.Drawing.Point(18, 21);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(889, 20);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "这是条件查找，如果对某一栏没有要求，空着即可。需要编辑请出门左转价格编辑，这里只用来查找";
             // 
             // Form_SearchVip
             // 
@@ -196,5 +208,6 @@
         private System.Windows.Forms.TextBox textpara3;
         private System.Windows.Forms.TextBox textpara2;
         private System.Windows.Forms.TextBox textpara1;
+        private System.Windows.Forms.Label label4;
     }
 }

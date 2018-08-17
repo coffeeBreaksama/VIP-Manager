@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.Card = new System.Windows.Forms.Label();
             this.TCardNum = new System.Windows.Forms.Label();
             this.BtnNewCard = new System.Windows.Forms.Button();
@@ -36,7 +35,6 @@
             this.Free = new System.Windows.Forms.Label();
             this.FreeNum = new System.Windows.Forms.Label();
             this.tex_BuyN = new System.Windows.Forms.TextBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.CardBalance = new System.Windows.Forms.Label();
             this.CardBalanceNum = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -115,11 +113,6 @@
             this.tex_BuyN.TabIndex = 9;
             this.tex_BuyN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tex_BuyN_KeyPress);
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // CardBalance
             // 
             this.CardBalance.Font = new System.Drawing.Font("宋体", 20F);
@@ -171,7 +164,6 @@
         private System.Windows.Forms.Label Free;
         private System.Windows.Forms.Label FreeNum;
         private System.Windows.Forms.TextBox tex_BuyN;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label CardBalance;
         private System.Windows.Forms.Label CardBalanceNum;
     }

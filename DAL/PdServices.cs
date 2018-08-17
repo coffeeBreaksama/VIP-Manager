@@ -4,43 +4,43 @@ using System.Text;
 using System.Data;
 using System.Data.OleDb;
 using SysCard.Models;
+using SysCard.DAL.Data;
 namespace SysCard.DAL
 {
     public class PdServices
     {
-        public static int AddPd(Pd_info pd)
+
+        public static List<employeeInfo> getallpd()
         {
-            string sql = string.Format("insert into pd_info (pd_name) values('{0}')",pd.Pdname);
-            int ret = Dbhelper.ExecuteNonQuery(sql);
-            return ret;
-        }
-        public static List<Pd_info> getallpd()
-        {
-            string sql = "select * from pd_info";
+            string sql = "select * from EmployeeInfo";
             OleDbDataReader dr = Dbhelper.ExecuteReader(sql);
-            List<Pd_info> list = new List<Pd_info>();
+            List<employeeInfo> list = new List<employeeInfo>();
             if (dr != null)
             {
                 while (dr.Read())
                 {
-                    Pd_info pd = new Pd_info();
-                    pd.Pdname = dr[1].ToString();
-                    pd.Pdid = int.Parse(dr[0].ToString());
-                    list.Add(pd);
+                    employeeInfo pd = new employeeInfo();
+                    pd.Name = dr[1].ToString();
+                    pd.Id = uint.Parse(dr[0].ToString());
+                    pd.CreateTime = DateTime.Parse(dr[3].ToString());
+                    pd.Type = dr[4].ToString();
+
+                    if(pd.Id > 9)
+                        list.Add(pd);
                 }
                 dr.Close();
             }
             
             return list;
         }
-        public static int UpdatePd(Pd_info pd)
+        public static int UpdatePd(employeeInfo pd)
         {
-            string sql = string.Format("update pd_info set pd_name='{0}' where pd_id={1}",pd.Pdname,pd.Pdid);
+            string sql = string.Format("update EmployeeInfo set EmployeeName='{0}' where Id={1}", pd.Name, pd.Id);
             return Dbhelper.ExecuteNonQuery(sql); 
         }
-        public static int DlePd(Pd_info pd)
+        public static int DlePd(employeeInfo pd)
         {
-            string sql = string.Format("delete from pd_info where pd_id={0}",pd.Pdid);
+            string sql = string.Format("delete * from EmployeeInfo where Id={0}", pd.Id);
             return Dbhelper.ExecuteNonQuery(sql);            
         }
     }

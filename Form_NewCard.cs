@@ -22,18 +22,37 @@ namespace SysCard
             //this.FormBorderStyle = FormBorderStyle.None;
             this.Show();
             //this.timer1.Enabled = true;
-        }
-        
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            this.TCardNum.Text = waiter.GetPortCardNum();
-        }
+        }       
 
         private void BtnNewCard_Click(object sender, EventArgs e)
         {
-            path = ControCenter.SelectPath();
-            ControCenter.GetDataOfExcel(path);
-            DataService.FillPriceOfDs();
+            try
+            {
+                path = ControCenter.SelectPath();
+                ControCenter.GetDataOfExcel(path);
+                DataService.FillPriceOfDs();
+                dataGridView1.DataSource = DataService.GetListFormDs();
+            }
+            catch
+            {
+                MessageBox.Show("打开文件失败。请确保文件格式正确");
+            }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataService.DsCoverToExcel(path);
+            }
+            catch
+            {
+                MessageBox.Show("生成文件失败，请检查表格格式。");
+            }
+        }
+
+
+
+
     }
 }

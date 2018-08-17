@@ -46,7 +46,7 @@ namespace SysCard.DAL
         }
         public static OleDbConnection GetOleDbConnectionExcel(string path)
         {
-            string connstr = " Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + path + ";Extended Properties='Excel 8.0'";//从配置文件读取dat.mdb所在文件地址
+            string connstr = " Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path + ";Extended Properties='Excel 8.0'";//从配置文件读取dat.mdb所在文件地址
             //string connstr = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = dat.mdb; Persist Security Info = False";
             if (connection == null)
             {
@@ -63,7 +63,7 @@ namespace SysCard.DAL
         }
         public static OleDbConnection GetOleDbConnection()
         {
-            string connstr = System.Configuration.ConfigurationManager.ConnectionStrings["connstr"].ToString();//从配置文件读取dat.mdb所在文件地址
+            string connstr = System.Configuration.ConfigurationManager.ConnectionStrings["connstr"].ToString() + ";Jet OLEDB:Database Password=tyy1059606243;";//从配置文件读取dat.mdb所在文件地址
                                                                                                                //string connstr = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = dat.mdb; Persist Security Info = False";
             if (connection == null)
             {

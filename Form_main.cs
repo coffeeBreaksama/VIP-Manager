@@ -12,6 +12,7 @@ using System.IO;
 using SysCard.DAL.Data;
 using SysCard.DAL.Waiter;
 using SysCard.DAL.Manager;
+
 namespace SysCard
 {
     public partial class Form_main : Form
@@ -24,7 +25,7 @@ namespace SysCard
 
 
             //this.FormBorderStyle = FormBorderStyle.None;
-            this.NowLogName.Text = NowLogName.Text + ControCenter.NowLogName;
+            this.NowLogName.Text = NowLogName.Text + ControCenter.NowLogType + ControCenter.NowLogName;
             WindowState = FormWindowState.Maximized;
             //自做控件
             Bout b = new Bout();
@@ -39,13 +40,22 @@ namespace SysCard
             this.BackgroundImage = img;
 
 
-            Update();
+            this.Show();
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            waiter.RunAddNewVip();
+            if (ControCenter.NowLogType == "员工")
+            {
+                MessageBox.Show("权限不足，请联系管理员");
+            }
+            else
+            {
+                Form_EditPrice f = new Form_EditPrice();
+                f.ShowInTaskbar = false;
+                f.ShowDialog();
+            }
         }
 
         private void Form_main_FormClosing(object sender, FormClosingEventArgs e)
@@ -55,21 +65,28 @@ namespace SysCard
 
         private void button2_Click(object sender, EventArgs e)
         {
-            /*FormUpdate f = new FormUpdate(NowLogEmp);
-            f.ShowInTaskbar = false;
-            f.ShowDialog();*/
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Form_Config f = new Form_Config();
+            FormUpdate f = new FormUpdate();
             f.ShowInTaskbar = false;
             f.ShowDialog();
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (ControCenter.NowLogType == "员工")
+            {
+                MessageBox.Show("权限不足，请联系管理员");
+            }
+            else
+            {
+                Form_Config f = new Form_Config();
+                f.ShowInTaskbar = false;
+                f.ShowDialog();
+            }
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
-            waiter.RunSearchVip();
+            Form_SearchVip searchVip = new Form_SearchVip();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -79,23 +96,23 @@ namespace SysCard
 
         private void button5_Click_1(object sender, EventArgs e)
         {
-            waiter.RunNewCard();
+            Form_NewCard newCard = new Form_NewCard();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            waiter.RunNewCard();
+            
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
 
-            waiter.RunSearchCard();
+           
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            waiter.RunTopIn();
+            
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -112,10 +129,7 @@ namespace SysCard
 
         private void button8_Click_1(object sender, EventArgs e)
         {
-            /*Form_Sco f = new Form_Sco();
-            f.ShowInTaskbar = false;
-            f.ShowDialog();*/
-            MessageBox.Show("设备错误,请重新插入!!");
+           
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -125,7 +139,7 @@ namespace SysCard
 
         private void button10_Click(object sender, EventArgs e)
         {
-            waiter.RunConsu();
+            
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -137,9 +151,9 @@ namespace SysCard
 
         private void button10_Click_1(object sender, EventArgs e)
         {
-            Form_dispPk f = new Form_dispPk();
-            f.ShowInTaskbar = false;
-            f.ShowDialog();
+             /*Dim key As RegistryKey = Registry.LocalMachine
+             Dim subKey = key.OpenSubKey("HARDWARE\DEVICEMAP\Scsi\Scsi Port 0\Scsi Bus 0\Target Id 0\Logical Unit Id 0")
+             Dim bbb = subKey.GetValue("Identifier")*/
         }
 
         private void toolStripStatusLabel1_Click(object sender, EventArgs e)
@@ -184,5 +198,7 @@ namespace SysCard
         {
 
         }
+
+
     }
 }
