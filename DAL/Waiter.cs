@@ -127,7 +127,7 @@ namespace SysCard.DAL.Waiter
         {
             ProjectForm.Close();
         }
-        public static void StartLog(Form init)
+        public static void StartLog(Form init)//开始准备登陆，验证
         {
             ProjectForm = init;
             if (!DataService.VerifyConn())
@@ -138,6 +138,11 @@ namespace SysCard.DAL.Waiter
             else
             {
                 init.Visible = false;
+
+
+                ControCenter.GetFeatureCode();
+
+                //ControCenter.FeatureCode = "fuck";
                 ControCenter.FirstUse = DataService.IsFirstUse();
                 if (ControCenter.FirstUse)
                 {
@@ -145,7 +150,18 @@ namespace SysCard.DAL.Waiter
                 }
                 else
                 {
-                    Form_log Log = new Form_log();
+                    ControCenter.VerifyUsingPermission();
+                    if (ControCenter.remainDays >= 0)
+                    {
+                        Form_log Log = new Form_log();
+                    }
+                    else
+                    {
+                        MessageBox.Show("剩余时间不足，请充值以继续使用软件");
+                        Form_purchase f = new Form_purchase();
+
+                    }
+                    
                 }
             }
         }

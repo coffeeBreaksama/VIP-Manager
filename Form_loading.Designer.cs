@@ -34,13 +34,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.serviceController1 = new System.ServiceProcess.ServiceController();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::SysCard.Properties.Resources._420X200;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(416, 208);
@@ -70,18 +70,30 @@
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("宋体", 13F);
+            this.label2.Location = new System.Drawing.Point(133, 89);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(134, 18);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "加载中，请稍后";
+            // 
             // Form_loading
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(416, 208);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.labload);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form_loading";
-            this.Text = "Form_loading";
+            this.Text = "加载中";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -92,5 +104,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timer1;
         private System.ServiceProcess.ServiceController serviceController1;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -47,7 +47,7 @@ namespace SysCard
             }
             catch
             {
-                MessageBox.Show("生成文件失败，请检查表格格式。");
+                MessageBox.Show("生成表格失败，请删除目录下的上一个已生成表格，再重新尝试");
             }
         }
 

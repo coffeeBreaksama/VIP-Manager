@@ -151,14 +151,15 @@ namespace SysCard
 
         private void button4_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("1:老规矩，请按格式修改好表格再尝试导入。 2.当原有的价格与此时导入的表冲突时，将以现在的价格为准 3.对于原来没有的物品信息，则添加数据库。4.当数据库中存在多个相同物品时，仅修改序号大的物品价格");
+            MessageBox.Show("1:请按格式修改好表格再尝试导入。 /n2.当软件价格与此时导入的表冲突时，以导入的表格为准 /n3.当软件库中存在多个相同参数相同物品时，仅修改序号大的物品价格");
             try
             {
                 string path = ControCenter.SelectPath();
                 DataService.ImportExcelToAcess(path);
             }
-            catch
+            catch 
             {
+
                 MessageBox.Show("导入失败，检查文件。");
             }
             

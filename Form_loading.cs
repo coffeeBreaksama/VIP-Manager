@@ -23,6 +23,7 @@ namespace SysCard
             this.labload.Width = 0;
             CenterToScreen();
             ControCenter.GetCpuDeskId();
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)

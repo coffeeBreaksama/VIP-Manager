@@ -30,6 +30,7 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.textpara3 = new System.Windows.Forms.TextBox();
             this.textpara2 = new System.Windows.Forms.TextBox();
             this.textpara1 = new System.Windows.Forms.TextBox();
@@ -41,7 +42,6 @@
             this.tex_id = new System.Windows.Forms.TextBox();
             this.tex_name = new System.Windows.Forms.TextBox();
             this.Search = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +75,16 @@
             this.groupBox2.Size = new System.Drawing.Size(1254, 185);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("宋体", 15F);
+            this.label4.Location = new System.Drawing.Point(18, 21);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(889, 20);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "这是条件查找，如果对某一栏没有要求，空着即可。需要编辑请出门左转价格编辑，这里只用来查找";
             // 
             // textpara3
             // 
@@ -167,16 +177,6 @@
             this.Search.UseVisualStyleBackColor = true;
             this.Search.Click += new System.EventHandler(this.Search_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("宋体", 15F);
-            this.label4.Location = new System.Drawing.Point(18, 21);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(889, 20);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "这是条件查找，如果对某一栏没有要求，空着即可。需要编辑请出门左转价格编辑，这里只用来查找";
-            // 
             // Form_SearchVip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -185,7 +185,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form_SearchVip";
-            this.Text = "Form_SearchVip";
+            this.Text = "报价查找";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

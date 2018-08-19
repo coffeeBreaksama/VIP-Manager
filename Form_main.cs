@@ -41,7 +41,8 @@ namespace SysCard
 
 
             this.Show();
-
+            string str = ControCenter.GernerCDK("8B06025F1F8DDF02C08EF3B7BF21858396507976524B1F74", "30", 0);
+     
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -54,7 +55,7 @@ namespace SysCard
             {
                 Form_EditPrice f = new Form_EditPrice();
                 f.ShowInTaskbar = false;
-                f.ShowDialog();
+                f.Show();
             }
         }
 
@@ -112,7 +113,7 @@ namespace SysCard
 
         private void button7_Click(object sender, EventArgs e)
         {
-            
+            Form_purchase f = new Form_purchase();//Test用
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -155,11 +156,7 @@ namespace SysCard
              Dim subKey = key.OpenSubKey("HARDWARE\DEVICEMAP\Scsi\Scsi Port 0\Scsi Bus 0\Target Id 0\Logical Unit Id 0")
              Dim bbb = subKey.GetValue("Identifier")*/
         }
-
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -186,7 +183,6 @@ namespace SysCard
                 List<PictureBox> piclist= new List<PictureBox>();
                 piclist.Add(this.pictureBox1);
                 piclist.Add(this.pictureBox3);
-                piclist.Add(this.pictureBox4);
                 piclist.Add(this.pictureBox5);
                 piclist.Add(this.pictureBox6);
                 piclist.Add(this.pictureBox2);

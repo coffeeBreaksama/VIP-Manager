@@ -37,6 +37,7 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button6 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@
             this.tex_user = new System.Windows.Forms.TextBox();
             this.tex_pwd = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -146,6 +146,16 @@
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 11F);
+            this.label1.Location = new System.Drawing.Point(58, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(382, 15);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "管理员具有修改报价和账号管理的权限，员工账号则没有";
+            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
@@ -158,11 +168,11 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(571, 15);
+            this.button6.Location = new System.Drawing.Point(510, 15);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 45);
+            this.button6.Size = new System.Drawing.Size(124, 45);
             this.button6.TabIndex = 0;
-            this.button6.Text = "添加";
+            this.button6.Text = "新建账户";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
@@ -211,16 +221,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(698, 459);
             this.tabControl1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 11F);
-            this.label1.Location = new System.Drawing.Point(58, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(382, 15);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "管理员具有修改报价和账号管理的权限，员工账号则没有";
             // 
             // Form_Config
             // 

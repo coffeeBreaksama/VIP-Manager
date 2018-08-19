@@ -36,8 +36,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -57,7 +58,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("宋体", 12F);
-            this.button1.Location = new System.Drawing.Point(275, 407);
+            this.button1.Location = new System.Drawing.Point(277, 407);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(200, 52);
             this.button1.TabIndex = 2;
@@ -101,9 +102,9 @@
             this.label4.Font = new System.Drawing.Font("宋体", 12F);
             this.label4.Location = new System.Drawing.Point(32, 65);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 16);
+            this.label4.Size = new System.Drawing.Size(520, 16);
             this.label4.TabIndex = 6;
-            this.label4.Text = "2.只需体验3分钟";
+            this.label4.Text = "2.本软件完全不联网，使用时需要账号密码登陆，绝对保证隐私数据安全";
             // 
             // label5
             // 
@@ -111,19 +112,9 @@
             this.label5.Font = new System.Drawing.Font("宋体", 12F);
             this.label5.Location = new System.Drawing.Point(32, 100);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(136, 16);
+            this.label5.Size = new System.Drawing.Size(312, 16);
             this.label5.TabIndex = 7;
-            this.label5.Text = "3.让您省下招工钱";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("宋体", 12F);
-            this.label6.Location = new System.Drawing.Point(32, 133);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 16);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "4.xxxx";
+            this.label5.Text = "3.支持现有报价表格导入，省却添加的烦恼";
             // 
             // label7
             // 
@@ -135,13 +126,36 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "复制下面的机器码发送给销售人员,免费获取一个月的使用权！";
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("宋体", 12F);
+            this.button2.Location = new System.Drawing.Point(12, 418);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(108, 31);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "开发工具";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("宋体", 12F);
+            this.button3.Location = new System.Drawing.Point(660, 418);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(108, 31);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "取消";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form_FirstGuild
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(780, 471);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -167,7 +181,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

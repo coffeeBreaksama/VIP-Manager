@@ -17,6 +17,7 @@
     </UpgradeBackupLocation>
     <OldToolsVersion>2.0</OldToolsVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -31,7 +32,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -62,9 +62,10 @@
     <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
     <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
     <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>BasicCorrectnessRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRuleSetDirectories>;D:\VS2010\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
     <CodeAnalysisRuleDirectories>;D:\VS2010\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <DocumentationFile>bin\x86\Debug\SysCard.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -110,6 +111,12 @@
     <Compile Include="DAL\ScoServices.cs" />
     <Compile Include="DAL\UserServices.cs" />
     <Compile Include="DAL\BuyProductServices.cs" />
+    <Compile Include="Form_purchase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_purchase.Designer.cs">
+      <DependentUpon>Form_purchase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_FirstGuild.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,6 +277,9 @@
     <Compile Include="Models\BuyProduct.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form_purchase.resx">
+      <DependentUpon>Form_purchase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormUpdate.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormUpdate.cs</DependentUpon>

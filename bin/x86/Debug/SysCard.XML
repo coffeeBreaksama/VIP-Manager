@@ -1,0 +1,639 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SysCard</name>
+    </assembly>
+    <members>
+        <member name="F:SysCard.Form_BuyBK.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_BuyBK.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SysCard.Form_BuyBK.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SysCard.Form_TopIn.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_TopIn.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:SysCard.Form_TopIn.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:SysCard.Form_SearchCard.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_SearchCard.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:SysCard.Form_SearchCard.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:SysCard.Form_Consu.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_Consu.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:SysCard.Form_Consu.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:SysCard.Form_payFor.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_payFor.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SysCard.Form_payFor.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SysCard.Form_Config.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_Config.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SysCard.Form_Config.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SysCard.Form_adduser.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_adduser.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SysCard.Form_adduser.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SysCard.Test.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:SysCard.Test.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:SysCard.Test.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:SysCard.Form_NewCard.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_NewCard.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:SysCard.Form_NewCard.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:SysCard.Form_NewVip.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_NewVip.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:SysCard.Form_NewVip.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:SysCard.Form_FirstGuild.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_FirstGuild.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:SysCard.Form_FirstGuild.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:SysCard.For_AddPrice.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SysCard.For_AddPrice.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SysCard.For_AddPrice.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SysCard.Form_Product.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_Product.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SysCard.Form_Product.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SysCard.Form_main.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_main.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SysCard.Form_main.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:SysCard.Program.Main">
+            <summary>
+            应用程序的主入口点。
+            </summary>
+        </member>
+        <member name="F:SysCard.Form_TestForm.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_TestForm.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SysCard.Form_TestForm.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SysCard.Form_SearchVip.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_SearchVip.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:SysCard.Form_SearchVip.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:SysCard.DAL.BuyProductServices.AddProduct(SysCard.Models.BuyProduct)">
+            <summary>
+            添加销售记录
+            </summary>
+            <param name="product"></param>
+            <returns></returns>
+        </member>
+        <member name="F:SysCard.Form_EditPrice.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_EditPrice.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SysCard.Form_EditPrice.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SysCard.Form_Pay.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_Pay.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SysCard.Form_Pay.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SysCard.Form_log.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_log.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SysCard.Form_log.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SysCard.Form_ChangePassword.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_ChangePassword.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:SysCard.Form_ChangePassword.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:SysCard.DAL.Dbhelper.OpenConnect">
+            
+            <summary>
+            获得连接对象
+            </summary>
+            <returns></returns>
+            
+        </member>
+        <member name="M:SysCard.DAL.Dbhelper.ExecuteNonQuery(System.String)">
+            <summary>
+            执行语句
+            </summary>
+            <param name="cmdText">sql</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCard.DAL.Dbhelper.ExecuteReader(System.String)">
+            <summary>
+            返回sqldataReader
+            </summary>
+            <param name="cmdText">sql语句</param>
+            <returns></returns>
+        </member>
+        <member name="F:SysCard.Form_dispPk.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_dispPk.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SysCard.Form_dispPk.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SysCard.FormUpdate.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SysCard.FormUpdate.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SysCard.FormUpdate.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SysCard.Form_dispbk.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_dispbk.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SysCard.Form_dispbk.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SysCard.Form_loading.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_loading.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SysCard.Form_loading.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SysCard.Form_Sco.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_Sco.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SysCard.Form_Sco.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:SysCard.Form_purchase.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_purchase.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:SysCard.Form_purchase.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:SysCard.Form_aboat.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:SysCard.Form_aboat.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:SysCard.Form_aboat.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="M:SysCard.DAL.AdminServices.AddAdmin(SysCard.Models.AdminInfo)">
+            <summary>
+            管理员登记
+            </summary>
+            <param name="admin">管理员信息</param>
+            <returns>操作</returns>
+        </member>
+        <member name="M:SysCard.DAL.AdminServices.UpdataAdmin(SysCard.Models.AdminInfo)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="admin">管理员信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysCard.DAL.AdminServices.LoginAdmin(System.String,System.String)">
+            <summary>
+            管理员登陆
+            </summary>
+            <param name="username">管理员用户名</param>
+            <param name="userpwd">管理员密码</param>
+            <returns>登陆管理员用户信</returns>
+        </member>
+        <member name="T:SysCard.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:SysCard.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:SysCard.Properties.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:SysCard.Properties.Resources._1024X768">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SysCard.Properties.Resources._127353384813128">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SysCard.Properties.Resources._420X200">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SysCard.Properties.Resources.pdlogin_">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SysCard.Properties.Resources.png_0007">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SysCard.Properties.Resources.png_0013">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SysCard.Properties.Resources.png_0022">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SysCard.Properties.Resources.png_0041">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SysCard.Properties.Resources.png_0054">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SysCard.Properties.Resources.png_0055">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SysCard.Properties.Resources.png_0098">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SysCard.Properties.Resources.png_00981">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SysCard.Properties.Resources.png_0184">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SysCard.Properties.Resources.png_0234">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SysCard.Properties.Resources.png_0504">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SysCard.Properties.Resources.png_0509">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SysCard.Properties.Resources.png_0566">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SysCard.Properties.Resources.png_1119">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SysCard.Properties.Resources.未命名">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+        <member name="P:SysCard.Properties.Resources.未标题_1_拷贝">
+            <summary>
+              查找 System.Drawing.Bitmap 类型的本地化资源。
+            </summary>
+        </member>
+    </members>
+</doc>

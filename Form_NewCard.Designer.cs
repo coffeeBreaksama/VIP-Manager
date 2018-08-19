@@ -84,7 +84,7 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("宋体", 20F);
-            this.label3.Location = new System.Drawing.Point(33, 303);
+            this.label3.Location = new System.Drawing.Point(33, 352);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(177, 85);
             this.label3.TabIndex = 4;
@@ -119,6 +119,7 @@
             this.label4.Size = new System.Drawing.Size(222, 40);
             this.label4.TabIndex = 7;
             this.label4.Text = "生成预览：";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form_NewCard
             // 
@@ -134,7 +135,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnNewCard);
             this.Name = "Form_NewCard";
-            this.Text = "发卡";
+            this.Text = "快速报价";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

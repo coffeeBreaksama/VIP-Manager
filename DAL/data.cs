@@ -16,7 +16,30 @@ namespace SysCard.DAL.Data
         public static string strConn;
         public static string strExcel;
         public static OleDbConnection conn;
+        public static int excelTime = 0;
 
+
+        public static string GetPermissionInfo()//获取授权信息，返回LOG表最后一条信息
+        {
+            string sql = " select * from  Log";
+            OleDbDataReader dr = Dbhelper.ExecuteReader(sql);
+            string remainDays = null;
+            try
+            {
+                while(dr.Read())
+                {
+                    remainDays = dr[0].ToString() + ";" + dr[1].ToString() + ";" + dr[2].ToString() + ";" + dr[3].ToString() + ";";
+                }
+            }
+            catch
+            {
+                MessageBox.Show("读取授权信息失败");
+                return "0;0;0;0;" ;
+            }
+            
+            return remainDays;
+
+        }
 
         public static int UpdataPer(string featureCode,uint days)
         {
@@ -76,7 +99,7 @@ namespace SysCard.DAL.Data
                     EditObj("ADD", obj);
                 }
             }
-
+            MessageBox.Show("导入数据成功！新的数据将在重启软件后生效");
 
         }
 
@@ -174,9 +197,12 @@ namespace SysCard.DAL.Data
 
         public static bool DsCoverToExcel(string path)//将Dataset中的数据创建成新表格
         {
+            string[] str = DateTime.Now.GetDateTimeFormats();
+            string days = str[10];
+            string time = str[146].Replace(":","点");
             conn.Close();
             String sConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;" +
-            "Data Source=" + path + "生成结果.xls"+
+            "Data Source=" + path + days + time + ".xls" +
             ";Extended Properties=Excel 8.0;";
             OleDbConnection cn = new OleDbConnection(sConnectionString);
             string sqlCreate = "CREATE TABLE 软件填充 ([序号] VarChar,[物品名称] VarChar,[参数1] VarChar,[参数2] VarChar,[参数3] VarChar,[价格1] VarChar,[价格2] VarChar,[价格3] VarChar,[备注2] VarChar)";
@@ -193,7 +219,7 @@ namespace SysCard.DAL.Data
                         ds.Tables[0].Rows[i][3].ToString(), ds.Tables[0].Rows[i][4].ToString(), ds.Tables[0].Rows[i][5].ToString(), ds.Tables[0].Rows[i][6].ToString(), ds.Tables[0].Rows[i][7].ToString(), ds.Tables[0].Rows[i][8].ToString());
                     cmd.ExecuteNonQuery();
                 }
-                MessageBox.Show("生成表格成功");
+                MessageBox.Show("生成表格成功，祝发财");
                 //关闭连接
                 cn.Close();
             }

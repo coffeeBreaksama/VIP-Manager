@@ -26,20 +26,127 @@ namespace SysCard.DAL.Manager//主要的业务逻辑实现控制台
         public static DataSet ds;
         public static string CpuId;
         public static string HdId;
-        public static string FeatureCode;
+        public static string FeatureCode;//根据CPUID加密计算出来的特征码，CDK log中储存的也是特征码
         public static bool FirstUse;
+        public static string PermissionCode;//数据库返回的包含所有CDK信息的字符串
+        public static string[] str;
         private static string KEY = "TONGYUEY";
+        public static int remainDays;
+
 
         public ControCenter()
         {
             LoadObjData();
             //KEY = GenerateKey();
         }
-        public string GenerateKey()//产生key
+
+        public static string GernerCDK(string code,string time,int type)
         {
-            DESCryptoServiceProvider desCrypto = (DESCryptoServiceProvider)DESCryptoServiceProvider.Create();
-            return ASCIIEncoding.ASCII.GetString(desCrypto.Key);
+            string testCDK = null;
+            if (type == 0)
+            {
+                testCDK = Encrypt(FeatureCode + ":" + time, KEY);
+                return testCDK;
+            }
+            else if (type == 1)
+            {
+                string xufeiInfo = Decrypt(code, KEY);//从续费特征码计算出续费信息。
+                string[] xufeisArray = Regex.Split(xufeiInfo, ";", RegexOptions.IgnoreCase);//
+                string getCDK = Encrypt(xufeisArray[0] + ";xufei;130", KEY);//这里的150后续要设变量
+                return getCDK;
+
+            }
+            return null;
         }
+
+        public static bool CertifyXufeiCode(string XufeiCode, string XufeiCDK)//验证CDK若为真，更新LOG表。
+        {
+            string xufeiInfo = Decrypt(XufeiCode, KEY);//从续费特征码计算出续费信息。
+            string[] xufeisArray = Regex.Split(xufeiInfo, ";", RegexOptions.IgnoreCase);//
+            string getCDK = Encrypt(xufeisArray[0] + ";xufei;130", KEY);//这里的150后续要设变量
+
+
+            try
+            {
+                string middle = Decrypt(XufeiCDK, KEY);//解密CDK转化为续费特征码
+                string[] sArray = Regex.Split(middle, ";", RegexOptions.IgnoreCase);//
+                uint day = uint.Parse(sArray[2]);
+                if (sArray[0] == CpuId)//验证成功
+                {
+                    MessageBox.Show("续费成功！欢迎使用！");
+                    DataService.UpdataPer(FeatureCode, day);//更新授权表数据
+                    remainDays = int.Parse(sArray[3]);
+                    return true;
+                }
+
+                else
+                    return false;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+        public static string GetXufeiCode()//计算返回续费特征码
+        {
+            if (str == null)
+                return FeatureCode;
+            string xufeicode = CpuId +";"+ str[2] +";" + str[3];
+            string code;
+            try
+            {
+                code = Encrypt(xufeicode, KEY);
+                return code;
+
+            }
+            catch
+            {
+                MessageBox.Show("获取序列号失败，请联系销售人员");
+                return null;
+            }
+        }
+
+
+        public static int VerifyUsingPermission()//验证授权，返回剩余使用天数,更新remainDays值。
+        {
+            int day = 0;
+            PermissionCode = DataService.GetPermissionInfo();
+            str = Regex.Split(PermissionCode, ";");
+            if (NowLogType == "开发者")
+                return 999;
+            else
+            {
+                try
+                {
+                    if (str[1] == FeatureCode)//特征码与库中数据对的上。
+                    {
+                        DateTime CDKCreatTime = DateTime.Parse(str[2]);
+                        DateTime now = System.DateTime.Now;
+                        DateTime overdueDay = CDKCreatTime.AddDays(int.Parse(str[3]));
+                        TimeSpan remainTime = overdueDay - now;
+                        // MessageBox.Show(remainTime.TotalDays.ToString());
+                        day = (int)remainTime.TotalDays;
+                        remainDays = day;
+                        return day;
+                    }
+                    else
+                    {
+                        remainDays = -1;
+                        MessageBox.Show("电脑不符合，无法登陆，请联系管理员");
+                    }
+
+                }
+                catch
+                {
+                    MessageBox.Show("错误：解析授权失败");
+                    return -1;
+                }
+            }
+
+            return -1;
+        }
+
         public static string Encrypt(string pToEncrypt, string sKey)//加密
         {
             System.Security.Cryptography.DESCryptoServiceProvider des = new DESCryptoServiceProvider();
@@ -84,7 +191,7 @@ namespace SysCard.DAL.Manager//主要的业务逻辑实现控制台
 
         public static bool CertifyCDK(string CDK)//验证CDK
         {
-            string testCDK = Encrypt(FeatureCode+":150", KEY);
+            //string testCDK = Encrypt(FeatureCode+":150", KEY);
 
             try
             {
@@ -94,9 +201,15 @@ namespace SysCard.DAL.Manager//主要的业务逻辑实现控制台
                 if (sArray[0] == FeatureCode)//验证成功
                 {
                     MessageBox.Show("激活成功！欢迎使用！");
-                    if (FirstUse == true)
+                    DataService.UpdataPer(FeatureCode,day);//更新授权表数据
+                    if (ControCenter.FirstUse == true)
                     {
-                        DataService.UpdataPer(FeatureCode,day);//更新授权表数据
+                        employeeInfo emp = new employeeInfo();
+                        emp.Name = "1";
+                        emp.Password = "1";
+                        emp.Type = "管理员";
+                        MessageBox.Show("初始用户名：1，密码：1  登陆后请自行修改密码");
+                        DataService.AddEmployee(emp);
                     }
                     return true;
                 }

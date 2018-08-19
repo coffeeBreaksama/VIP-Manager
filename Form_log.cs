@@ -29,24 +29,14 @@ namespace SysCard
             this.FormBorderStyle = FormBorderStyle.None;
             this.Show();
             //MessageBox.Show(ControCenter.GetCpuDeskId());
-            ControCenter.GetFeatureCode();
-            if (ControCenter.FirstUse)
-            {
- 
-            }
+
+            
 
         }
         
         private void log()
         {
-            AdminType type;
-            if (this.LogType.CheckState == CheckState.Checked)
-            {
-                type = AdminType.老板;
-            }
-            else
-                type = AdminType.雇员;
-            employeeInfo employee = DataService.LoginEmployee(this.tex_User.Text, this.tex_pwd.Text,type);
+            employeeInfo employee = DataService.LoginEmployee(this.tex_User.Text, this.tex_pwd.Text);
             //MessageBox.Show(admin.Adminname);
             try
             {
@@ -78,6 +68,13 @@ namespace SysCard
             waiter.Log(this.tex_User.Text, this.tex_pwd.Text, this);
 
         }
+
+        private void tex_pwd_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+                waiter.Log(this.tex_User.Text, this.tex_pwd.Text, this);
+        }
+
 
     }
 }
